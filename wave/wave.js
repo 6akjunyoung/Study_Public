@@ -29,7 +29,7 @@ export class Wave {
         for(let i = 0; i < this.totalPoints; i++) {
             const point = new Point(
                 this.index + i,
-                this.pointGap + i,
+                this.pointGap * i,
                 this.centerY,
             );
             this.points[i] = point;
@@ -52,15 +52,15 @@ export class Wave {
             const cx = (prevX + this.points[i].x) / 2;
             const cy = (prevY + this.points[i].y) / 2;
             
-            ctx.lineTo(cx, cy);
+            ctx.quadraticCurveTo(prevX, prevY, cx, cy);
 
-            prevx = this.points[i].x;
+            prevX = this.points[i].x;
             prevY = this.points[i].y;
         }
 
-        ctx.lintTo(prevX, prevY);
-        ctx.lintTo(this.stageWidth, this.stageHeight);
-        ctx.lintTo(this.points[0].x, this.stageHeight);
+        ctx.lineTo(prevX, prevY);
+        ctx.lineTo(this.stageWidth, this.stageHeight);
+        ctx.lineTo(this.points[0].x, this.stageHeight);
         ctx.fill();
         ctx.closePath();
     }
