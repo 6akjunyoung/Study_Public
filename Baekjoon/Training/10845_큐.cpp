@@ -24,24 +24,24 @@ int main() {
             tail = (tail + 1) % N;
             ++qsize;
         } else if (cmd == "pop") {
-            if (qsize == 0) cout << -1 << endl;
+            if (qsize == 0) cout << -1 << '\n';
             else {
-                cout << queue[head] << endl;
+                cout << queue[head] << '\n';
                 head = (head + 1) % N;
                 --qsize;
             }
         } else if (cmd == "size") {
-            cout << qsize << endl;
+            cout << qsize << '\n';
         } else if (cmd == "empty") {
-            cout << (qsize == 0 ? 1 : 0) << endl;
+            cout << (qsize == 0 ? 1 : 0) << '\n';
         } else if (cmd == "front") {
-            if (qsize == 0) cout << -1 << endl;
-            else cout << queue[head] << endl;
+            if (qsize == 0) cout << -1 << '\n';
+            else cout << queue[head] << '\n';
         } else if (cmd == "back") {
-            if (qsize == 0) cout << -1 << endl;
+            if (qsize == 0) cout << -1 << '\n';
             else {
                 int idx = (tail - 1 + N) % N;
-                cout << queue[idx] << endl;
+                cout << queue[idx] << '\n';
             }
         }
     }
